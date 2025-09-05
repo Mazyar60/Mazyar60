@@ -89,6 +89,20 @@ export function WalletConnect() {
     }
   }
 
+  const connectSafePal = async () => {
+    // SafePal uses the same interface as MetaMask when browser extension is installed
+    if (typeof window !== "undefined" && window.ethereum) {
+      await connectMetaMask()
+    } else {
+      window.open("https://www.safepal.com/download", "_blank")
+    }
+  }
+
+  const connectOtherWallets = () => {
+    // Open WalletConnect or other wallet connection options
+    window.open("https://walletconnect.com/", "_blank")
+  }
+
   const disconnect = () => {
     setAccount(null)
   }
@@ -158,6 +172,36 @@ export function WalletConnect() {
               <div>
                 <h3 className="font-medium text-white">Trust Wallet</h3>
                 <p className="text-xs text-gray-400">Mobile-first crypto wallet</p>
+              </div>
+            </div>
+            <ExternalLink className="w-4 h-4 text-gray-400" />
+          </Button>
+
+          <Button
+            onClick={connectSafePal}
+            disabled={isConnecting}
+            className="w-full flex items-center justify-between p-4 bg-gray-800 hover:bg-gray-700 text-left h-auto"
+          >
+            <div className="flex items-center space-x-3">
+              <span className="text-2xl">🔐</span>
+              <div>
+                <h3 className="font-medium text-white">SafePal</h3>
+                <p className="text-xs text-gray-400">Hardware & software wallet</p>
+              </div>
+            </div>
+            <ExternalLink className="w-4 h-4 text-gray-400" />
+          </Button>
+
+          <Button
+            onClick={connectOtherWallets}
+            disabled={isConnecting}
+            className="w-full flex items-center justify-between p-4 bg-gray-800 hover:bg-gray-700 text-left h-auto border-2 border-dashed border-gray-600"
+          >
+            <div className="flex items-center space-x-3">
+              <span className="text-2xl">🔗</span>
+              <div>
+                <h3 className="font-medium text-white">Other Wallets</h3>
+                <p className="text-xs text-gray-400">Connect via WalletConnect</p>
               </div>
             </div>
             <ExternalLink className="w-4 h-4 text-gray-400" />

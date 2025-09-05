@@ -21,6 +21,10 @@ export default function HomePage() {
   const { tokens, loading: tokensLoading } = useTokenList()
   const { prices, loading: pricesLoading } = useDexScreener(tokens)
 
+  const getTokenPrice = (token: Token) => {
+    return prices[token.address.toLowerCase()] || prices[token.address]
+  }
+
   const filteredTokens = tokens.filter(
     (token) =>
       token.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -145,7 +149,7 @@ export default function HomePage() {
               <TokenCard
                 key={token.address}
                 token={token}
-                price={prices[token.address]}
+                price={getTokenPrice(token)} // Use helper function for consistent address lookup
                 onCardClick={() => setSelectedToken(token)}
                 onCopyAddress={handleCopyAddress}
               />
@@ -183,23 +187,23 @@ export default function HomePage() {
 
               <div className="space-y-6">
                 {/* Price and Chart */}
-                {prices[selectedToken.address] && (
+                {getTokenPrice(selectedToken) && ( // Use helper function here too
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold">${prices[selectedToken.address].price.toFixed(6)}</span>
+                      <span className="text-2xl font-bold">${getTokenPrice(selectedToken)!.price.toFixed(6)}</span>
                       <Badge
-                        variant={prices[selectedToken.address].change24h >= 0 ? "default" : "destructive"}
-                        className={prices[selectedToken.address].change24h >= 0 ? "bg-green-600" : ""}
+                        variant={getTokenPrice(selectedToken)!.change24h >= 0 ? "default" : "destructive"}
+                        className={getTokenPrice(selectedToken)!.change24h >= 0 ? "bg-green-600" : ""}
                       >
-                        {prices[selectedToken.address].change24h >= 0 ? "+" : ""}
-                        {prices[selectedToken.address].change24h.toFixed(2)}%
+                        {getTokenPrice(selectedToken)!.change24h >= 0 ? "+" : ""}
+                        {getTokenPrice(selectedToken)!.change24h.toFixed(2)}%
                       </Badge>
                     </div>
-                    {prices[selectedToken.address].sparkline && (
+                    {getTokenPrice(selectedToken)!.sparkline && (
                       <div className="h-24">
                         <Sparkline
-                          data={prices[selectedToken.address].sparkline}
-                          color={prices[selectedToken.address].change24h >= 0 ? "#10b981" : "#ef4444"}
+                          data={getTokenPrice(selectedToken)!.sparkline!}
+                          color={getTokenPrice(selectedToken)!.change24h >= 0 ? "#10b981" : "#ef4444"}
                         />
                       </div>
                     )}

@@ -3,9 +3,14 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
-import { Providers } from "./providers"
-import "./globals.css"
+import dynamic from "next/dynamic"
 import { Suspense } from "react"
+import "./globals.css"
+
+const DynamicProviders = dynamic(() => import("./providers").then((mod) => ({ default: mod.Providers })), {
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-black" />,
+})
 
 export const metadata: Metadata = {
   title: "RZ Oasis - Token Management Platform",
@@ -63,8 +68,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={null}>
-          <Providers>{children}</Providers>
+        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+          <DynamicProviders>{children}</DynamicProviders>
         </Suspense>
         <Analytics />
       </body>

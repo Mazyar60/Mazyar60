@@ -34,13 +34,13 @@ export default function HomePage() {
   }
 
   const handleShare = async (token: Token) => {
-    if (navigator.share) {
+    if (typeof window !== "undefined" && navigator.share) {
       await navigator.share({
         title: `${token.name} (${token.symbol})`,
         text: `Check out ${token.name} on RZ Oasis`,
         url: window.location.href,
       })
-    } else {
+    } else if (typeof window !== "undefined" && navigator.clipboard) {
       await navigator.clipboard.writeText(window.location.href)
     }
   }

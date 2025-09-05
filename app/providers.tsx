@@ -103,7 +103,8 @@ export function Providers({ children }: { children: ReactNode }) {
     if (!walletKit) return
 
     try {
-      const connectUri = uri || new URLSearchParams(window.location.search).get("uri")
+      const connectUri =
+        uri || (typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("uri") : null)
 
       if (connectUri) {
         await walletKit.pair({ uri: connectUri })

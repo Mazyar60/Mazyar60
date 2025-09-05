@@ -19,6 +19,10 @@ export function useDexScreener(tokens: Token[]) {
     async function fetchPrices() {
       try {
         setLoading(true)
+        console.log(
+          "[v0] Fetching prices for tokens:",
+          tokens.map((t) => t.address),
+        )
 
         // Create a batch of addresses for the API call
         const addresses = tokens.map((token) => token.address).join(",")
@@ -26,18 +30,24 @@ export function useDexScreener(tokens: Token[]) {
         // DexScreener API endpoint for BSC tokens
         const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${addresses}`)
 
+        console.log("[v0] DexScreener API response status:", response.status)
+
         if (!response.ok) {
           throw new Error("Failed to fetch price data")
         }
 
         const data = await response.json()
+        console.log("[v0] DexScreener API data:", data)
+
         const newPrices: Record<string, TokenPrice> = {}
 
         // Process the response data
         if (data.pairs && Array.isArray(data.pairs)) {
+          console.log("[v0] Found pairs:", data.pairs.length)
           data.pairs.forEach((pair: any) => {
             if (pair.baseToken && pair.priceUsd) {
               const address = pair.baseToken.address.toLowerCase()
+              console.log("[v0] Processing pair for address:", address, "price:", pair.priceUsd)
 
               // Generate mock sparkline data (in real app, this would come from API)
               const sparkline = Array.from({ length: 24 }, (_, i) => {
@@ -59,6 +69,7 @@ export function useDexScreener(tokens: Token[]) {
         tokens.forEach((token) => {
           const address = token.address.toLowerCase()
           if (!newPrices[address]) {
+            console.log("[v0] Generating mock data for token:", token.symbol, address)
             const mockPrice = Math.random() * 0.001 + 0.0001
             const mockChange = (Math.random() - 0.5) * 20
             const sparkline = Array.from({ length: 24 }, (_, i) => {
@@ -74,9 +85,10 @@ export function useDexScreener(tokens: Token[]) {
           }
         })
 
+        console.log("[v0] Final prices object:", newPrices)
         setPrices(newPrices)
       } catch (err) {
-        console.error("Error fetching price data:", err)
+        console.error("[v0] Error fetching price data:", err)
 
         // Generate mock data as fallback
         const mockPrices: Record<string, TokenPrice> = {}
@@ -94,6 +106,7 @@ export function useDexScreener(tokens: Token[]) {
             sparkline,
           }
         })
+        console.log("[v0] Using fallback mock prices:", mockPrices)
         setPrices(mockPrices)
       } finally {
         setLoading(false)

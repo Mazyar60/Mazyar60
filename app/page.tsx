@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { SimpleWalletConnect } from "@/components/simple-wallet-connect"
+import { WalletConnect } from "@/components/wallet-connect"
 import { Search, ExternalLink, Copy, Share2, BarChart3, Globe, Shield, Lock, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -101,7 +101,7 @@ export default function HomePage() {
                 RZ Oasis
               </h1>
             </div>
-            <SimpleWalletConnect />
+            <WalletConnect />
           </div>
         </div>
       </header>

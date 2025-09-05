@@ -9,130 +9,19 @@
     {
       "name": "RZ Token",
       "symbol": "RZ",
-      "address": "0x1234567890123456789012345678901234567890",
+      "address": "0x6BC5AbCc56874D7fACb90C2c3812cc19aAf9B204",
       "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
       "links": {
         "website": "https://rzoasis.com",
         "twitter": "https://twitter.com/rzoasis",
-        "telegram": "https://t.me/rzoasis"
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x6BC5AbCc56874D7fACb90C2c3812cc19aAf9B204"
       },
       "metadata": {
         "supply": 1000000000,
         "burn": "5% burned",
         "vesting": "Team tokens locked for 12 months",
         "audit": "Audited by CertiK"
-      }
-    },
-    {
-      "name": "BNB",
-      "symbol": "BNB",
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "icon": "https://cryptologos.cc/logos/bnb-bnb-logo.png",
-      "links": {
-        "website": "https://www.binance.com",
-        "twitter": "https://twitter.com/binance"
-      },
-      "metadata": {
-        "supply": 200000000,
-        "burn": "Quarterly burns",
-        "vesting": "No vesting",
-        "audit": "Multiple audits"
-      }
-    },
-    {
-      "name": "PancakeSwap Token",
-      "symbol": "CAKE",
-      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
-      "icon": "https://pancakeswap.finance/logo.png",
-      "links": {
-        "website": "https://pancakeswap.finance",
-        "twitter": "https://twitter.com/pancakeswap"
-      },
-      "metadata": {
-        "supply": 750000000,
-        "burn": "Weekly burns",
-        "vesting": "Team allocation vested",
-        "audit": "Audited"
-      }
-    },
-    {
-      "name": "SafeMoon",
-      "symbol": "SAFEMOON",
-      "address": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
-      "icon": "https://safemoon.net/logo.png",
-      "links": {
-        "website": "https://safemoon.net",
-        "twitter": "https://twitter.com/safemoon"
-      },
-      "metadata": {
-        "supply": 1000000000000000,
-        "burn": "Auto-burn mechanism",
-        "vesting": "Liquidity locked",
-        "audit": "Multiple audits"
-      }
-    },
-    {
-      "name": "Trust Wallet Token",
-      "symbol": "TWT",
-      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
-      "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png",
-      "links": {
-        "website": "https://trustwallet.com",
-        "twitter": "https://twitter.com/trustwallet"
-      },
-      "metadata": {
-        "supply": 1000000000,
-        "burn": "No burns planned",
-        "vesting": "Team tokens vested",
-        "audit": "Audited by multiple firms"
-      }
-    },
-    {
-      "name": "Venus",
-      "symbol": "XVS",
-      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
-      "icon": "https://venus.io/logo.png",
-      "links": {
-        "website": "https://venus.io",
-        "twitter": "https://twitter.com/VenusProtocol"
-      },
-      "metadata": {
-        "supply": 30000000,
-        "burn": "No burns",
-        "vesting": "Gradual release",
-        "audit": "Audited by Certik"
-      }
-    },
-    {
-      "name": "Alpaca Finance",
-      "symbol": "ALPACA",
-      "address": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
-      "icon": "https://alpacafinance.org/logo.png",
-      "links": {
-        "website": "https://alpacafinance.org",
-        "twitter": "https://twitter.com/AlpacaFinance"
-      },
-      "metadata": {
-        "supply": 188888888,
-        "burn": "No burns",
-        "vesting": "Team allocation locked",
-        "audit": "Audited by PeckShield"
-      }
-    },
-    {
-      "name": "Biswap",
-      "symbol": "BSW",
-      "address": "0x965F527D9159dCe6288a2219DB51fc6Eef120dD1",
-      "icon": "https://biswap.org/logo.png",
-      "links": {
-        "website": "https://biswap.org",
-        "twitter": "https://twitter.com/Biswap_DEX"
-      },
-      "metadata": {
-        "supply": 700000000,
-        "burn": "Regular burns",
-        "vesting": "Team tokens locked",
-        "audit": "Audited by Hacken"
       }
     }
   ]

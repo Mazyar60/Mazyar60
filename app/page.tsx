@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { ConnectWalletButton } from "@/components/connect-wallet-button"
-import { Search, ExternalLink, Copy, Share2, BarChart3, Globe, Shield, Lock } from "lucide-react"
+import { SimpleWalletConnect } from "@/components/simple-wallet-connect"
+import { Search, ExternalLink, Copy, Share2, BarChart3, Globe, Shield, Lock, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -45,6 +45,46 @@ export default function HomePage() {
     }
   }
 
+  const handleSwap = (token: Token) => {
+    const swapUrl = `https://pancakeswap.finance/swap?outputCurrency=${token.address}`
+    window.open(swapUrl, "_blank")
+  }
+
+  const handleChart = (token: Token) => {
+    if (token.links?.dextools) {
+      window.open(token.links.dextools, "_blank")
+    } else {
+      const chartUrl = `https://www.dextools.io/app/en/bnb/pair-explorer/${token.address}`
+      window.open(chartUrl, "_blank")
+    }
+  }
+
+  const handleExplorer = (token: Token) => {
+    const explorerUrl = `https://bscscan.com/token/${token.address}`
+    window.open(explorerUrl, "_blank")
+  }
+
+  const handleAddToWallet = async (token: Token) => {
+    if (typeof window !== "undefined" && window.ethereum) {
+      try {
+        await window.ethereum.request({
+          method: "wallet_watchAsset",
+          params: {
+            type: "ERC20",
+            options: {
+              address: token.address,
+              symbol: token.symbol,
+              decimals: 18,
+              image: token.icon,
+            },
+          },
+        })
+      } catch (error) {
+        console.error("Failed to add token to wallet:", error)
+      }
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -61,7 +101,7 @@ export default function HomePage() {
                 RZ Oasis
               </h1>
             </div>
-            <ConnectWalletButton />
+            <SimpleWalletConnect />
           </div>
         </div>
       </header>
@@ -168,15 +208,27 @@ export default function HomePage() {
 
                 {/* Action Buttons */}
                 <div className="grid grid-cols-2 gap-3">
-                  <Button variant="default" className="bg-purple-600 hover:bg-purple-700">
+                  <Button
+                    variant="default"
+                    className="bg-purple-600 hover:bg-purple-700"
+                    onClick={() => handleSwap(selectedToken)}
+                  >
                     <BarChart3 className="w-4 h-4 mr-2" />
                     Swap
                   </Button>
-                  <Button variant="outline" className="border-gray-600 hover:bg-gray-800 bg-transparent">
+                  <Button
+                    variant="outline"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    onClick={() => handleChart(selectedToken)}
+                  >
                     <BarChart3 className="w-4 h-4 mr-2" />
                     Chart
                   </Button>
-                  <Button variant="outline" className="border-gray-600 hover:bg-gray-800 bg-transparent">
+                  <Button
+                    variant="outline"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    onClick={() => handleExplorer(selectedToken)}
+                  >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Explorer
                   </Button>
@@ -190,15 +242,36 @@ export default function HomePage() {
                       Website
                     </Button>
                   )}
-                  <Button variant="outline" className="border-gray-600 hover:bg-gray-800 bg-transparent">
+                  <Button
+                    variant="outline"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    onClick={() => {
+                      if (selectedToken.links?.audit) {
+                        window.open(selectedToken.links.audit, "_blank")
+                      }
+                    }}
+                  >
                     <Shield className="w-4 h-4 mr-2" />
                     Audit
                   </Button>
-                  <Button variant="outline" className="border-gray-600 hover:bg-gray-800 bg-transparent">
+                  <Button
+                    variant="outline"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    onClick={() => {
+                      if (selectedToken.links?.mudra) {
+                        window.open(selectedToken.links.mudra, "_blank")
+                      }
+                    }}
+                  >
                     <Lock className="w-4 h-4 mr-2" />
                     Mudra
                   </Button>
-                  <Button variant="outline" className="border-gray-600 hover:bg-gray-800 bg-transparent">
+                  <Button
+                    variant="outline"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    onClick={() => handleAddToWallet(selectedToken)}
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
                     Add to Wallet
                   </Button>
                   <Button

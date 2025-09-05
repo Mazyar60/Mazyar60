@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -22,6 +24,34 @@ interface TokenCardProps {
 
 export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCardProps) {
   const shortAddress = `${token.address.slice(0, 6)}...${token.address.slice(-4)}`
+
+  const handleSwap = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    const swapUrl = `https://pancakeswap.finance/swap?outputCurrency=${token.address}`
+    window.open(swapUrl, "_blank")
+  }
+
+  const handleChart = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (token.links?.dextools) {
+      window.open(token.links.dextools, "_blank")
+    } else {
+      const chartUrl = `https://www.dextools.io/app/en/bnb/pair-explorer/${token.address}`
+      window.open(chartUrl, "_blank")
+    }
+  }
+
+  const handleExplorer = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    const explorerUrl = `https://bscscan.com/token/${token.address}`
+    window.open(explorerUrl, "_blank")
+  }
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(token.address)
+    onCopyAddress(token.address)
+  }
 
   return (
     <Card
@@ -89,10 +119,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
             size="sm"
             variant="default"
             className="bg-purple-600 hover:bg-purple-700 text-xs"
-            onClick={(e) => {
-              e.stopPropagation()
-              // Handle swap action
-            }}
+            onClick={handleSwap}
           >
             <BarChart3 className="w-3 h-3 mr-1" />
             Swap
@@ -101,10 +128,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
             size="sm"
             variant="outline"
             className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
-            onClick={(e) => {
-              e.stopPropagation()
-              // Handle chart action
-            }}
+            onClick={handleChart}
           >
             <BarChart3 className="w-3 h-3 mr-1" />
             Chart
@@ -113,10 +137,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
             size="sm"
             variant="outline"
             className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
-            onClick={(e) => {
-              e.stopPropagation()
-              // Handle explorer action
-            }}
+            onClick={handleExplorer}
           >
             <ExternalLink className="w-3 h-3 mr-1" />
             Explorer
@@ -125,10 +146,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
             size="sm"
             variant="outline"
             className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
-            onClick={(e) => {
-              e.stopPropagation()
-              onCopyAddress(token.address)
-            }}
+            onClick={handleCopy}
           >
             <Copy className="w-3 h-3 mr-1" />
             Copy

@@ -23,6 +23,330 @@
         "vesting": "Team tokens locked for 12 months",
         "audit": "Audited by CertiK"
       }
+    },
+    {
+      "name": "Magic Token",
+      "symbol": "MGC",
+      "address": "0xbb73BB2505AC4643d5C0a99c2A1F34B3DfD09D11",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xc08019ea4988bcce9dc4c2ee983e431a885d2f1a"
+      },
+      "metadata": {
+        "supply": 1000000000,
+        "burn": "3% burned",
+        "vesting": "No vesting",
+        "audit": "Community verified"
+      }
+    },
+    {
+      "name": "Insurance Token",
+      "symbol": "INS",
+      "address": "0x64E4fea6e4F3637025c7Bcd878E2B238B01f7D4e",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x85cce3b0717b1ad14bf87b0130d2e58ece479ecb"
+      },
+      "metadata": {
+        "supply": 500000000,
+        "burn": "2% burned",
+        "vesting": "6 months lock",
+        "audit": "Pending audit"
+      }
+    },
+    {
+      "name": "JPMorgan Token",
+      "symbol": "JPM",
+      "address": "0xb847541705e7386022a8473318791d05fb36d79d",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xb847541705e7386022a8473318791d05fb36d79d"
+      },
+      "metadata": {
+        "supply": 2000000000,
+        "burn": "1% burned",
+        "vesting": "12 months lock",
+        "audit": "Audited"
+      }
+    },
+    {
+      "name": "Cartier Token",
+      "symbol": "CART",
+      "address": "0x11000b7a01f18e763b3f8def9c1bf490522725bb",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x11000b7a01f18e763b3f8def9c1bf490522725bb"
+      },
+      "metadata": {
+        "supply": 100000000,
+        "burn": "10% burned",
+        "vesting": "No vesting",
+        "audit": "Community verified"
+      }
+    },
+    {
+      "name": "Shell Token",
+      "symbol": "SHELL",
+      "address": "0x6cb625ea79baa5656b9fef6a0bea110a91ab54ff",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x6cb625ea79baa5656b9fef6a0bea110a91ab54ff"
+      },
+      "metadata": {
+        "supply": 800000000,
+        "burn": "4% burned",
+        "vesting": "3 months lock",
+        "audit": "Pending audit"
+      }
+    },
+    {
+      "name": "Patek Token",
+      "symbol": "PATEK",
+      "address": "0xb4e65d7038d1f600138a3ea0f9ea42258f32677b",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xb4e65d7038d1f600138a3ea0f9ea42258f32677b"
+      },
+      "metadata": {
+        "supply": 50000000,
+        "burn": "15% burned",
+        "vesting": "18 months lock",
+        "audit": "Audited by Hacken"
+      }
+    },
+    {
+      "name": "Rolls-Royce Token",
+      "symbol": "RR",
+      "address": "0x11a55cda744b7421c95c55c03c2450b83efa9e31",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x11a55cda744b7421c95c55c03c2450b83efa9e31"
+      },
+      "metadata": {
+        "supply": 25000000,
+        "burn": "20% burned",
+        "vesting": "24 months lock",
+        "audit": "Audited by CertiK"
+      }
+    },
+    {
+      "name": "Life Token",
+      "symbol": "LIFE",
+      "address": "0x488535e0a2503252798f381b2df08a6280e994b2",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x488535e0a2503252798f381b2df08a6280e994b2"
+      },
+      "metadata": {
+        "supply": 1500000000,
+        "burn": "7% burned",
+        "vesting": "No vesting",
+        "audit": "Community verified"
+      }
+    },
+    {
+      "name": "Chanel Token",
+      "symbol": "CHANEL",
+      "address": "0x421a8d17e12a19d79e855e2ab9a53f623279f5a3",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x421a8d17e12a19d79e855e2ab9a53f623279f5a3"
+      },
+      "metadata": {
+        "supply": 75000000,
+        "burn": "12% burned",
+        "vesting": "9 months lock",
+        "audit": "Audited"
+      }
+    },
+    {
+      "name": "Tractor Token",
+      "symbol": "TRACTOR",
+      "address": "0xe014d1c27934a59c1ff2cd2a3320afd635fcbdfd",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xe014d1c27934a59c1ff2cd2a3320afd635fcbdfd"
+      },
+      "metadata": {
+        "supply": 300000000,
+        "burn": "6% burned",
+        "vesting": "4 months lock",
+        "audit": "Pending audit"
+      }
+    },
+    {
+      "name": "Gold Token",
+      "symbol": "GOLD",
+      "address": "0x957e0fdfbd1c2f97648318b2f057e327996ec367",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x957e0fdfbd1c2f97648318b2f057e327996ec367"
+      },
+      "metadata": {
+        "supply": 21000000,
+        "burn": "25% burned",
+        "vesting": "36 months lock",
+        "audit": "Audited by Hacken"
+      }
+    },
+    {
+      "name": "RealEstate Token",
+      "symbol": "REAL",
+      "address": "0x32477cf0e324f9a9cb49e8803fa4de9f80f8d0d4",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x32477cf0e324f9a9cb49e8803fa4de9f80f8d0d4"
+      },
+      "metadata": {
+        "supply": 600000000,
+        "burn": "8% burned",
+        "vesting": "15 months lock",
+        "audit": "Audited by CertiK"
+      }
+    },
+    {
+      "name": "Trip Token",
+      "symbol": "TRIP",
+      "address": "0xC9Bfb93d75645c4681BB63794ABf1acAD44725e7",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xC9Bfb93d75645c4681BB63794ABf1acAD44725e7"
+      },
+      "metadata": {
+        "supply": 900000000,
+        "burn": "5% burned",
+        "vesting": "No vesting",
+        "audit": "Community verified"
+      }
+    },
+    {
+      "name": "Industrial Token",
+      "symbol": "IND",
+      "address": "0x9e06e1203bdc3747ee3ab5fa9488619bcf2a2666",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0x9e06e1203bdc3747ee3ab5fa9488619bcf2a2666"
+      },
+      "metadata": {
+        "supply": 1200000000,
+        "burn": "9% burned",
+        "vesting": "8 months lock",
+        "audit": "Audited"
+      }
+    },
+    {
+      "name": "Jewelry Token",
+      "symbol": "JWL",
+      "address": "0xf04FaB6Dda66261eaBfD65e92A6b81dDaF6a950a",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xf04FaB6Dda66261eaBfD65e92A6b81dDaF6a950a"
+      },
+      "metadata": {
+        "supply": 150000000,
+        "burn": "18% burned",
+        "vesting": "21 months lock",
+        "audit": "Audited by Hacken"
+      }
+    },
+    {
+      "name": "Car Token",
+      "symbol": "CAR",
+      "address": "0xBB1106c7dEb7cC60EfA51391760b14aEd8CB5BEd",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xBB1106c7dEb7cC60EfA51391760b14aEd8CB5BEd"
+      },
+      "metadata": {
+        "supply": 400000000,
+        "burn": "11% burned",
+        "vesting": "7 months lock",
+        "audit": "Pending audit"
+      }
+    },
+    {
+      "name": "OMG Token",
+      "symbol": "OMG",
+      "address": "0xE94444Ba62208431a27C764E2e28794e81f5B235",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xE94444Ba62208431a27C764E2e28794e81f5B235"
+      },
+      "metadata": {
+        "supply": 700000000,
+        "burn": "13% burned",
+        "vesting": "No vesting",
+        "audit": "Community verified"
+      }
+    },
+    {
+      "name": "RZUSD Token",
+      "symbol": "RZUSD",
+      "address": "0xc4a1cc5ca8955a4650bdc109bddf110e33a1e344",
+      "icon": "https://i.postimg.cc/dZGYw59D/logo.png",
+      "links": {
+        "website": "https://rzoasis.com",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/bnb/pair-explorer/0xc4a1cc5ca8955a4650bdc109bddf110e33a1e344"
+      },
+      "metadata": {
+        "supply": 10000000000,
+        "burn": "0% burned",
+        "vesting": "Stablecoin - No vesting",
+        "audit": "Audited by CertiK"
+      }
     }
   ]
 }

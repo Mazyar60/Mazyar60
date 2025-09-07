@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { WalletConnect } from "@/components/wallet-connect"
-import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp } from "lucide-react"
+import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp, Gamepad2, Crown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -126,21 +126,6 @@ export default function HomePage() {
               </h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/platforms">
-                <Button variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500/10 bg-transparent">
-                  <Globe className="w-4 h-4 mr-2" />
-                  Platforms
-                </Button>
-              </Link>
-              <Link href="/swap">
-                <Button
-                  variant="outline"
-                  className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent"
-                >
-                  <TrendingUp className="w-4 h-4 mr-2" />
-                  Swap
-                </Button>
-              </Link>
               <WalletConnect />
             </div>
           </div>
@@ -149,8 +134,72 @@ export default function HomePage() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        {/* Search Bar */}
+        {/* Platforms Section */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              RZ Ecosystem
+            </h2>
+            <Link href="/platforms">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg font-semibold"
+              >
+                <Globe className="w-5 h-5 mr-3" />
+                Explore Platforms
+              </Button>
+            </Link>
+          </div>
+          <p className="text-gray-400 text-lg mb-8 max-w-3xl">
+            Discover the complete RZ ecosystem with innovative platforms for gaming, DeFi, mining, and social
+            interaction.
+          </p>
+
+          {/* Quick Platform Links */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <Link href="/swap">
+              <Button
+                variant="outline"
+                className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent h-12 w-full"
+              >
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Swap
+              </Button>
+            </Link>
+            <Button
+              variant="outline"
+              className="border-green-500 text-green-400 hover:bg-green-500/10 bg-transparent h-12"
+              onClick={() => window.open("https://dex.rz.game", "_blank")}
+            >
+              <BarChart3 className="w-4 h-4 mr-2" />
+              DEX
+            </Button>
+            <Button
+              variant="outline"
+              className="border-blue-500 text-blue-400 hover:bg-blue-500/10 bg-transparent h-12"
+              onClick={() => window.open("https://ranking.game", "_blank")}
+            >
+              <Gamepad2 className="w-4 h-4 mr-2" />
+              Gaming
+            </Button>
+            <Button
+              variant="outline"
+              className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 bg-transparent h-12"
+              onClick={() => window.open("https://rzprime.com", "_blank")}
+            >
+              <Crown className="w-4 h-4 mr-2" />
+              Prime
+            </Button>
+          </div>
+        </div>
+
+        {/* Tokens Section Header */}
         <div className="mb-8">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
+            RZ Tokens
+          </h2>
+
+          {/* Search Bar */}
           <div className="relative max-w-md mx-auto">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <Input

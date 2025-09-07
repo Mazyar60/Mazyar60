@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { ExternalLink, TrendingUp, Gamepad2, Factory, Pickaxe, Users, Crown, ArrowLeft } from "lucide-react"
+import { ExternalLink, TrendingUp, Gamepad2, Factory, Pickaxe, Users, Crown, ArrowLeft, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -30,6 +30,17 @@ const platforms: Platform[] = [
     icon: <Gamepad2 className="w-8 h-8 text-purple-400" />,
     category: "Gaming",
     features: ["Player Rankings", "Competitive Gaming", "Leaderboards", "Achievements"],
+    status: "active",
+  },
+  {
+    id: "rz-blockchain",
+    name: "RZ Blockchain",
+    description:
+      "Explore the RZ blockchain network with comprehensive transaction tracking, block explorer, and network statistics.",
+    url: "https://explorer.rz.game",
+    icon: <Search className="w-8 h-8 text-cyan-400" />,
+    category: "Blockchain",
+    features: ["Block Explorer", "Transaction Tracking", "Network Stats", "Address Lookup"],
     status: "active",
   },
   {
@@ -182,7 +193,11 @@ export default function PlatformsPage() {
                       </Badge>
                     </div>
                   </div>
-                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
+                  <img
+                    src="https://i.postimg.cc/dZGYw59D/logo.png"
+                    alt="RZ Logo"
+                    className="w-6 h-6 rounded-full group-hover:scale-110 transition-transform"
+                  />
                 </div>
               </CardHeader>
               <CardContent>

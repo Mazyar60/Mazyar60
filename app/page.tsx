@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { WalletConnect } from "@/components/wallet-connect"
-import { Search, ExternalLink, Copy, Share2, BarChart3, Globe, Plus, TrendingUp } from "lucide-react"
+import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -70,7 +70,13 @@ export default function HomePage() {
   }
 
   const handleCoinMarketCap = (token: Token) => {
-    const cmcUrl = `https://coinmarketcap.com/currencies/${token.name.toLowerCase().replace(/\s+/g, "-")}/`
+    const tokenSlug =
+      token.symbol.toLowerCase() === "rz"
+        ? "rzcoin"
+        : token.symbol.toLowerCase() === "mgc"
+          ? "metagamescoin"
+          : token.name.toLowerCase().replace(/\s+/g, "-")
+    const cmcUrl = `https://coinmarketcap.com/currencies/${tokenSlug}/`
     window.open(cmcUrl, "_blank")
   }
 
@@ -120,6 +126,12 @@ export default function HomePage() {
               </h1>
             </div>
             <div className="flex items-center space-x-4">
+              <Link href="/platforms">
+                <Button variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500/10 bg-transparent">
+                  <Globe className="w-4 h-4 mr-2" />
+                  Platforms
+                </Button>
+              </Link>
               <Link href="/swap">
                 <Button
                   variant="outline"
@@ -286,14 +298,6 @@ export default function HomePage() {
                   >
                     <Plus className="w-4 h-4 mr-2" />
                     Add to Wallet
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
-                    onClick={() => handleCopyAddress(selectedToken.address)}
-                  >
-                    <Copy className="w-4 h-4 mr-2" />
-                    Copy Address
                   </Button>
                   <Button
                     variant="outline"

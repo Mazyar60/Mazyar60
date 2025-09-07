@@ -140,15 +140,6 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               RZ Ecosystem
             </h2>
-            <Link href="/platforms">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg font-semibold"
-              >
-                <Globe className="w-5 h-5 mr-3" />
-                Explore Platforms
-              </Button>
-            </Link>
           </div>
           <p className="text-gray-400 text-lg mb-8 max-w-3xl">
             Discover the complete RZ ecosystem with innovative platforms for gaming, DeFi, mining, and social
@@ -190,6 +181,18 @@ export default function HomePage() {
               <Crown className="w-4 h-4 mr-2" />
               Prime
             </Button>
+          </div>
+
+          <div className="flex justify-center mb-8">
+            <Link href="/platforms">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg font-semibold"
+              >
+                <Globe className="w-5 h-5 mr-3" />
+                Explore Platforms
+              </Button>
+            </Link>
           </div>
         </div>
 

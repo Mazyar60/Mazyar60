@@ -118,7 +118,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
           <Button
             size="sm"
             variant="default"
-            className="bg-purple-600 hover:bg-purple-700 text-xs"
+            className="bg-purple-600 hover:bg-purple-700 text-xs active:scale-95 transition-all duration-150"
             onClick={handleSwap}
           >
             <BarChart3 className="w-3 h-3 mr-1" />
@@ -127,7 +127,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
           <Button
             size="sm"
             variant="outline"
-            className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
+            className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent active:scale-95 transition-all duration-150"
             onClick={handleChart}
           >
             <BarChart3 className="w-3 h-3 mr-1" />
@@ -136,7 +136,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
           <Button
             size="sm"
             variant="outline"
-            className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
+            className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent active:scale-95 transition-all duration-150"
             onClick={handleExplorer}
           >
             <ExternalLink className="w-3 h-3 mr-1" />
@@ -145,7 +145,7 @@ export function TokenCard({ token, price, onCardClick, onCopyAddress }: TokenCar
           <Button
             size="sm"
             variant="outline"
-            className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
+            className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent active:scale-95 transition-all duration-150"
             onClick={handleCopy}
           >
             <Copy className="w-3 h-3 mr-1" />

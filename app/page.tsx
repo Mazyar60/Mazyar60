@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { WalletConnect } from "@/components/wallet-connect"
-import { Search, ExternalLink, Copy, Share2, BarChart3, Globe, Shield, Lock, Plus } from "lucide-react"
+import { Search, ExternalLink, Copy, Share2, BarChart3, Globe, Plus, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -14,6 +14,7 @@ import { useDexScreener } from "@/hooks/use-dex-screener"
 import { TokenCard } from "@/components/token-card"
 import { Sparkline } from "@/components/sparkline"
 import type { Token } from "@/types/token"
+import Link from "next/link"
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -68,6 +69,17 @@ export default function HomePage() {
     window.open(explorerUrl, "_blank")
   }
 
+  const handleCoinMarketCap = (token: Token) => {
+    const cmcUrl = `https://coinmarketcap.com/currencies/${token.name.toLowerCase().replace(/\s+/g, "-")}/`
+    window.open(cmcUrl, "_blank")
+  }
+
+  const handleWebsite = (token: Token) => {
+    if (token.links?.website) {
+      window.open(token.links.website, "_blank")
+    }
+  }
+
   const handleAddToWallet = async (token: Token) => {
     if (typeof window !== "undefined" && window.ethereum) {
       try {
@@ -86,6 +98,8 @@ export default function HomePage() {
       } catch (error) {
         console.error("Failed to add token to wallet:", error)
       }
+    } else {
+      alert("Please connect your wallet first to add tokens")
     }
   }
 
@@ -105,7 +119,18 @@ export default function HomePage() {
                 RZ Oasis
               </h1>
             </div>
-            <WalletConnect />
+            <div className="flex items-center space-x-4">
+              <Link href="/swap">
+                <Button
+                  variant="outline"
+                  className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent"
+                >
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Swap
+                </Button>
+              </Link>
+              <WalletConnect />
+            </div>
           </div>
         </div>
       </header>
@@ -214,7 +239,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     variant="default"
-                    className="bg-purple-600 hover:bg-purple-700"
+                    className="bg-purple-600 hover:bg-purple-700 active:scale-95 transition-all duration-150"
                     onClick={() => handleSwap(selectedToken)}
                   >
                     <BarChart3 className="w-4 h-4 mr-2" />
@@ -222,7 +247,7 @@ export default function HomePage() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
                     onClick={() => handleChart(selectedToken)}
                   >
                     <BarChart3 className="w-4 h-4 mr-2" />
@@ -230,7 +255,7 @@ export default function HomePage() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
                     onClick={() => handleExplorer(selectedToken)}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
@@ -239,8 +264,8 @@ export default function HomePage() {
                   {selectedToken.links?.website && (
                     <Button
                       variant="outline"
-                      className="border-gray-600 hover:bg-gray-800 bg-transparent"
-                      onClick={() => window.open(selectedToken.links?.website, "_blank")}
+                      className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
+                      onClick={() => handleWebsite(selectedToken)}
                     >
                       <Globe className="w-4 h-4 mr-2" />
                       Website
@@ -248,31 +273,15 @@ export default function HomePage() {
                   )}
                   <Button
                     variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
-                    onClick={() => {
-                      if (selectedToken.links?.audit) {
-                        window.open(selectedToken.links.audit, "_blank")
-                      }
-                    }}
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
+                    onClick={() => handleCoinMarketCap(selectedToken)}
                   >
-                    <Shield className="w-4 h-4 mr-2" />
-                    Audit
+                    <TrendingUp className="w-4 h-4 mr-2" />
+                    CoinMarketCap
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
-                    onClick={() => {
-                      if (selectedToken.links?.mudra) {
-                        window.open(selectedToken.links.mudra, "_blank")
-                      }
-                    }}
-                  >
-                    <Lock className="w-4 h-4 mr-2" />
-                    Mudra
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
                     onClick={() => handleAddToWallet(selectedToken)}
                   >
                     <Plus className="w-4 h-4 mr-2" />
@@ -280,7 +289,7 @@ export default function HomePage() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent"
+                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
                     onClick={() => handleCopyAddress(selectedToken.address)}
                   >
                     <Copy className="w-4 h-4 mr-2" />
@@ -288,7 +297,7 @@ export default function HomePage() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 col-span-2 bg-transparent"
+                    className="border-gray-600 hover:bg-gray-800 col-span-2 bg-transparent active:scale-95 transition-all duration-150"
                     onClick={() => handleShare(selectedToken)}
                   >
                     <Share2 className="w-4 h-4 mr-2" />

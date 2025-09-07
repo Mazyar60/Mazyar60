@@ -25,7 +25,7 @@
       }
     },
     {
-      "name": "Magic Token",
+      "name": "MetaGamesCoin",
       "symbol": "MGC",
       "address": "0xbb73BB2505AC4643d5C0a99c2A1F34B3DfD09D11",
       "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MGC-aKGyQZIZGenr3p339W8HI4PvhcqTN6.png",
@@ -190,7 +190,7 @@
       "name": "Tractor Token",
       "symbol": "TRACTOR",
       "address": "0xe014d1c27934a59c1ff2cd2a3320afd635fcbdfd",
-      "icon": "/placeholder.svg?height=64&width=64",
+      "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20241231-211158.jpg-mfOjfmYQu8MqyyGpifZ1IAPhezXn8D.jpeg",
       "links": {
         "website": "https://rzoasis.com",
         "twitter": "https://twitter.com/rzoasis",
@@ -316,7 +316,7 @@
       "name": "OMG Token",
       "symbol": "OMG",
       "address": "0xE94444Ba62208431a27C764E2e28794e81f5B235",
-      "icon": "/placeholder.svg?height=64&width=64",
+      "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Oilmetagames%20%28OMG%29.jpg-o6Toa3UusB1c0TibABAIkkz8UXYxge.jpeg",
       "links": {
         "website": "https://rzoasis.com",
         "twitter": "https://twitter.com/rzoasis",
@@ -346,6 +346,25 @@
         "burn": "0% burned",
         "vesting": "Stablecoin - No vesting",
         "audit": "Audited by CertiK"
+      }
+    },
+    {
+      "name": "CarbonZeroWorld",
+      "symbol": "CZW",
+      "address": "0xb2054b867c503350927930d0302528b9825d0db5",
+      "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CZW%20Logo%20200-200-ygjsMjMIENdR0wvH79ePcmoYY2rVf6.png",
+      "links": {
+        "website": "https://carbonzero.game",
+        "twitter": "https://twitter.com/rzoasis",
+        "telegram": "https://t.me/rzoasis",
+        "dextools": "https://www.dextools.io/app/en/token/czw?t=1757251957675",
+        "explorer": "https://bscscan.com/address/0xb2054b867c503350927930d0302528b9825d0db5"
+      },
+      "metadata": {
+        "supply": 1000000000,
+        "burn": "0% burned",
+        "vesting": "No vesting",
+        "audit": "Community verified"
       }
     }
   ]

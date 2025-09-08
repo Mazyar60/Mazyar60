@@ -153,16 +153,7 @@ export default function HomePage() {
           </p>
 
           {/* Quick Platform Links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <Link href="/swap">
-              <Button
-                variant="outline"
-                className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent h-12 w-full"
-              >
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Swap
-              </Button>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <Button
               variant="outline"
               className="border-green-500 text-green-400 hover:bg-green-500/10 bg-transparent h-12"
@@ -190,13 +181,13 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center mb-8">
-            <Link href="/platforms">
+            <Link href="/community">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg font-semibold"
               >
-                <Globe className="w-5 h-5 mr-3" />
-                Explore Platforms
+                <Users className="w-5 h-5 mr-3" />
+                Join Community
               </Button>
             </Link>
           </div>

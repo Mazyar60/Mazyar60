@@ -153,7 +153,15 @@ export default function HomePage() {
           </p>
 
           {/* Quick Platform Links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <Button
+              variant="outline"
+              className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent h-12"
+              onClick={() => window.open("/community", "_self")}
+            >
+              <Users className="w-4 h-4 mr-2" />
+              Community
+            </Button>
             <Button
               variant="outline"
               className="border-green-500 text-green-400 hover:bg-green-500/10 bg-transparent h-12"

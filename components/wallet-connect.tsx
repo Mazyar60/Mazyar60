@@ -1,14 +1,34 @@
 "use client"
 
-import { useAppKit } from "@reown/appkit/react"
-import { useAccount, useDisconnect } from "wagmi"
 import { Button } from "@/components/ui/button"
 import { Wallet } from "lucide-react"
+import { useState } from "react"
 
 export function WalletConnect() {
-  const { open } = useAppKit()
-  const { address, isConnected } = useAccount()
-  const { disconnect } = useDisconnect()
+  const [isConnected, setIsConnected] = useState(false)
+  const [address, setAddress] = useState("")
+
+  const connectWallet = async () => {
+    if (typeof window !== "undefined" && window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" })
+        if (accounts.length > 0) {
+          setAddress(accounts[0])
+          setIsConnected(true)
+        }
+      } catch (error) {
+        console.error("Failed to connect wallet:", error)
+      }
+    } else {
+      // Fallback: open wallet selection modal
+      window.open("https://metamask.io/download/", "_blank")
+    }
+  }
+
+  const disconnect = () => {
+    setIsConnected(false)
+    setAddress("")
+  }
 
   const shortAddress = address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ""
 
@@ -22,7 +42,7 @@ export function WalletConnect() {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => disconnect()}
+          onClick={disconnect}
           className="border-gray-600 hover:bg-gray-800 text-xs bg-transparent"
         >
           Disconnect
@@ -32,7 +52,7 @@ export function WalletConnect() {
   }
 
   return (
-    <Button onClick={() => open()} className="bg-purple-600 hover:bg-purple-700">
+    <Button onClick={connectWallet} className="bg-purple-600 hover:bg-purple-700">
       <Wallet className="w-4 h-4 mr-2" />
       Connect Wallet
     </Button>

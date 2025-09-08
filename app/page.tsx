@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { WalletConnect } from "@/components/wallet-connect"
-import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp, Gamepad2, Crown } from "lucide-react"
+import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp, Gamepad2, Crown, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -126,6 +126,12 @@ export default function HomePage() {
               </h1>
             </div>
             <div className="flex items-center space-x-4">
+              <Link href="/community">
+                <Button variant="ghost" className="text-gray-400 hover:text-white">
+                  <Users className="w-4 h-4 mr-2" />
+                  Community
+                </Button>
+              </Link>
               <WalletConnect />
             </div>
           </div>

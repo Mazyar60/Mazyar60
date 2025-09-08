@@ -126,12 +126,6 @@ export default function HomePage() {
               </h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/community">
-                <Button variant="ghost" className="text-gray-400 hover:text-white">
-                  <Users className="w-4 h-4 mr-2" />
-                  Community
-                </Button>
-              </Link>
               <WalletConnect />
             </div>
           </div>
@@ -189,13 +183,13 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center mb-8">
-            <Link href="/community">
+            <Link href="/platforms">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg font-semibold"
               >
-                <Users className="w-5 h-5 mr-3" />
-                Join Community
+                <Globe className="w-5 h-5 mr-3" />
+                Explore Platforms
               </Button>
             </Link>
           </div>

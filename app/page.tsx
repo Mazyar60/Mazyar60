@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useAccount } from "wagmi"
 import { WalletConnect } from "@/components/wallet-connect"
 import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp, Gamepad2, Crown, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -19,6 +20,7 @@ import Link from "next/link"
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedToken, setSelectedToken] = useState<Token | null>(null)
+  const { isConnected } = useAccount()
   const { tokens, loading: tokensLoading } = useTokenList()
   const { prices, loading: pricesLoading } = useDexScreener(tokens)
 
@@ -87,6 +89,11 @@ export default function HomePage() {
   }
 
   const handleAddToWallet = async (token: Token) => {
+    if (!isConnected) {
+      alert("Please connect your wallet first to add tokens")
+      return
+    }
+
     if (typeof window !== "undefined" && window.ethereum) {
       try {
         await window.ethereum.request({
@@ -103,9 +110,10 @@ export default function HomePage() {
         })
       } catch (error) {
         console.error("Failed to add token to wallet:", error)
+        alert("Failed to add token to wallet. Please try again.")
       }
     } else {
-      alert("Please connect your wallet first to add tokens")
+      alert("MetaMask or compatible wallet not detected")
     }
   }
 

@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { WalletConnect, useWallet } from "@/components/wallet-connect"
+import { useAccount } from "wagmi"
+import { WalletConnect } from "@/components/wallet-connect"
 import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp, Gamepad2, Crown, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,7 +20,7 @@ import Link from "next/link"
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedToken, setSelectedToken] = useState<Token | null>(null)
-  const { isConnected } = useWallet()
+  const { isConnected } = useAccount()
   const { tokens, loading: tokensLoading } = useTokenList()
   const { prices, loading: pricesLoading } = useDexScreener(tokens)
 
@@ -84,10 +85,6 @@ export default function HomePage() {
   const handleWebsite = (token: Token) => {
     if (token.links?.website) {
       window.open(token.links.website, "_blank")
-    } else if (token.links?.twitter) {
-      window.open(token.links.twitter, "_blank")
-    } else {
-      alert("Website not available for this token")
     }
   }
 
@@ -335,14 +332,16 @@ export default function HomePage() {
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Explorer
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
-                    onClick={() => handleWebsite(selectedToken)}
-                  >
-                    <Globe className="w-4 h-4 mr-2" />
-                    Website
-                  </Button>
+                  {selectedToken.links?.website && (
+                    <Button
+                      variant="outline"
+                      className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"
+                      onClick={() => handleWebsite(selectedToken)}
+                    >
+                      <Globe className="w-4 h-4 mr-2" />
+                      Website
+                    </Button>
+                  )}
                   <Button
                     variant="outline"
                     className="border-gray-600 hover:bg-gray-800 bg-transparent active:scale-95 transition-all duration-150"

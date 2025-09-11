@@ -34,6 +34,11 @@ createAppKit({
   features: {
     analytics: true,
   },
+  themeMode: "dark",
+  themeVariables: {
+    "--w3m-accent": "#8b5cf6",
+    "--w3m-border-radius-master": "12px",
+  },
 })
 
 export function Providers({ children }: { children: ReactNode }) {

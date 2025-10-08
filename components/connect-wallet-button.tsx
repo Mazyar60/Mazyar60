@@ -3,15 +3,12 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { useAccount, useDisconnect } from "wagmi"
-import { useAppKit } from "@reown/appkit/react"
+import { useSimpleWallet } from "@/hooks/use-simple-wallet"
 import { useTokenList } from "@/hooks/use-token-list"
 import { Copy, Wallet, Plus, CheckCircle, AlertCircle } from "lucide-react"
 
 export function ConnectWalletButton() {
-  const { isConnected, address } = useAccount()
-  const { disconnect } = useDisconnect()
-  const { open } = useAppKit()
+  const { isConnected, address, connect, disconnect } = useSimpleWallet()
   const { tokens } = useTokenList()
   const [uriInput, setUriInput] = useState("")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -61,8 +58,12 @@ export function ConnectWalletButton() {
     setIsImportingTokens(false)
   }
 
-  const handleConnect = () => {
-    open()
+  const handleConnect = async () => {
+    try {
+      await connect()
+    } catch (error) {
+      console.error("Failed to connect wallet:", error)
+    }
   }
 
   const handleDisconnect = async () => {

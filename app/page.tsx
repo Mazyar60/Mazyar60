@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useAccount } from "wagmi"
+import { useSimpleWallet } from "@/hooks/use-simple-wallet"
 import { WalletConnect } from "@/components/wallet-connect"
 import { Search, ExternalLink, Share2, BarChart3, Globe, Plus, TrendingUp, Gamepad2, Crown, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -20,7 +20,7 @@ import Link from "next/link"
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedToken, setSelectedToken] = useState<Token | null>(null)
-  const { isConnected } = useAccount()
+  const { isConnected } = useSimpleWallet()
   const { tokens, loading: tokensLoading } = useTokenList()
   const { prices, loading: pricesLoading } = useDexScreener(tokens)
 

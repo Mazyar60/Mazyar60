@@ -81,21 +81,32 @@ const platforms: Platform[] = [
     name: "RZ Mining",
     description:
       "Mine RZ ecosystem tokens through innovative proof-of-stake mechanisms. Earn rewards while securing the network.",
-    url: "https://coinmining.game",
+    url: "https://coinmaining.game",
     icon: <Pickaxe className="w-8 h-8 text-orange-400" />,
     category: "Mining",
     features: ["Token Mining", "Staking Rewards", "Network Security", "Passive Income"],
     status: "active",
   },
   {
-    id: "rz-social",
-    name: "RZ Social",
+    id: "rz-rank",
+    name: "RZRank",
     description:
-      "Social platform connecting the RZ community. Share insights, discuss strategies, and build relationships with fellow investors.",
-    url: "https://social.ranking.game",
+      "Ranking platform connecting the RZ community. Track rankings, compare performance, and compete with fellow investors.",
+    url: "https://coinranking.game",
     icon: <Users className="w-8 h-8 text-pink-400" />,
     category: "Social",
-    features: ["Community Hub", "Social Trading", "Discussion Forums", "User Profiles"],
+    features: ["Community Rankings", "Performance Tracking", "Leaderboards", "User Profiles"],
+    status: "active",
+  },
+  {
+    id: "rz-neobank",
+    name: "RZ NEOBANK",
+    description:
+      "Next-generation digital banking platform for the RZ ecosystem. Bridge assets, manage finances, and access DeFi services seamlessly.",
+    url: "https://rzbank.game",
+    icon: <Crown className="w-8 h-8 text-cyan-400" />,
+    category: "Banking",
+    features: ["Asset Bridging", "DeFi Integration", "Secure Wallet", "Cross-chain Support"],
     status: "active",
   },
 ]

@@ -183,10 +183,10 @@ export default function HomePage() {
             <Button
               variant="outline"
               className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 bg-transparent h-12"
-              onClick={() => window.open("https://rzprime.com", "_blank")}
+              onClick={() => window.open("/bridge", "_self")}
             >
               <Crown className="w-4 h-4 mr-2" />
-              Prime
+              RZBridge
             </Button>
           </div>
 

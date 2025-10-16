@@ -1,77 +1,61 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "shadcn/ui/styles";
 
 @custom-variant dark (&:is(.dark *));
 
+/* Oasis metaverse theme with cyberpunk neon colors */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: 0 0% 5%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 280 100% 70%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 180 100% 50%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 330 100% 60%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 280 100% 70%;
+  --radius: 0.75rem;
+
+  /* Neon colors for Oasis theme */
+  --neon-cyan: 180 100% 50%;
+  --neon-magenta: 330 100% 60%;
+  --neon-purple: 280 100% 70%;
+  --neon-green: 120 100% 50%;
+  --neon-blue: 220 100% 60%;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: 0 0% 20%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 25%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 25%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 280 100% 60%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 180 100% 40%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 330 100% 50%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 30%;
+  --input: 0 0% 30%;
+  --ring: 280 100% 60%;
+  --radius: 0.75rem;
 }
 
 @theme inline {
@@ -96,11 +80,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -119,75 +98,184 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-white;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   }
-}
 
-/* RainbowKit Base Styles */
-[data-rk] {
-  --rk-fonts-body:
-    var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
+  /* Animated starfield background for space/metaverse feel */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(2px 2px at 60% 70%, white, transparent), radial-gradient(1px 1px at 50% 50%, white, transparent),
+      radial-gradient(1px 1px at 80% 10%, white, transparent), radial-gradient(2px 2px at 90% 60%, white, transparent),
+      radial-gradient(1px 1px at 33% 80%, white, transparent), radial-gradient(1px 1px at 15% 90%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: stars 60s linear infinite;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-/* RainbowKit Dark Theme Variables */
-[data-rk][data-rk-theme="dark"] {
-  --rk-colors-accentColor: #7b3cf0;
-  --rk-colors-accentColorForeground: #ffffff;
-  --rk-colors-actionButtonBorder: rgba(255, 255, 255, 0.04);
-  --rk-colors-actionButtonBorderMobile: rgba(255, 255, 255, 0.08);
-  --rk-colors-actionButtonSecondaryBackground: rgba(255, 255, 255, 0.08);
-  --rk-colors-closeButton: rgba(224, 232, 255, 0.6);
-  --rk-colors-closeButtonBackground: rgba(255, 255, 255, 0.08);
-  --rk-colors-connectButtonBackground: #1a1b23;
-  --rk-colors-connectButtonBackgroundError: #ff494a;
-  --rk-colors-connectButtonInnerBackground: linear-gradient(0deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.15));
-  --rk-colors-connectButtonText: #ffffff;
-  --rk-colors-connectButtonTextError: #ffffff;
-  --rk-colors-connectionIndicator: #30e000;
-  --rk-colors-downloadBottomCardBackground: linear-gradient(
-      126deg,
-      rgba(255, 255, 255, 0) 9.49%,
-      rgba(171, 171, 171, 0.04) 71.04%
-    ), #1a1b23;
-  --rk-colors-downloadTopCardBackground: linear-gradient(
-      126deg,
-      rgba(171, 171, 171, 0.2) 9.49%,
-      rgba(255, 255, 255, 0) 71.04%
-    ), #1a1b23;
-  --rk-colors-error: #ff494a;
-  --rk-colors-generalBorder: rgba(255, 255, 255, 0.08);
-  --rk-colors-generalBorderDim: rgba(255, 255, 255, 0.04);
-  --rk-colors-menuItemBackground: rgba(224, 232, 255, 0.1);
-  --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.3);
-  --rk-colors-modalBackground: #1a1b23;
-  --rk-colors-modalBorder: rgba(255, 255, 255, 0.08);
-  --rk-colors-modalText: #ffffff;
-  --rk-colors-modalTextDim: rgba(224, 232, 255, 0.3);
-  --rk-colors-modalTextSecondary: rgba(255, 255, 255, 0.6);
-  --rk-colors-profileAction: rgba(224, 232, 255, 0.1);
-  --rk-colors-profileActionHover: rgba(224, 232, 255, 0.2);
-  --rk-colors-profileForeground: rgba(224, 232, 255, 0.05);
-  --rk-colors-selectedOptionBorder: #7b3cf0;
-  --rk-colors-standby: #ffb636;
-}
+  @keyframes stars {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
 
-/* RainbowKit Component Styles */
-[data-rk] button {
-  font-family: var(--rk-fonts-body);
-}
+  /* Neon glow effects for cyberpunk aesthetic */
+  .neon-glow-cyan {
+    box-shadow: 0 0 10px hsl(var(--neon-cyan)), 0 0 20px hsl(var(--neon-cyan) / 0.5);
+  }
 
-[data-rk] .iekbcc0 {
-  background: var(--rk-colors-connectButtonBackground);
-  border: 1px solid var(--rk-colors-actionButtonBorder);
-  border-radius: 12px;
-  color: var(--rk-colors-connectButtonText);
-  font-family: var(--rk-fonts-body);
-  font-weight: 600;
-  padding: 8px 12px;
-  transition: all 0.2s ease;
-}
+  .neon-glow-purple {
+    box-shadow: 0 0 10px hsl(var(--neon-purple)), 0 0 20px hsl(var(--neon-purple) / 0.5);
+  }
 
-[data-rk] .iekbcc0:hover {
-  background: var(--rk-colors-actionButtonSecondaryBackground);
+  .neon-glow-magenta {
+    box-shadow: 0 0 10px hsl(var(--neon-magenta)), 0 0 20px hsl(var(--neon-magenta) / 0.5);
+  }
+
+  /* Holographic card effect */
+  .holographic {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 255, 255, 0.1) 0%,
+      rgba(255, 0, 255, 0.1) 50%,
+      rgba(0, 255, 255, 0.1) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .holographic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .holographic:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Glitch text effect for futuristic feel */
+  .glitch {
+    position: relative;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 hsl(var(--neon-cyan));
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+  }
+
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 hsl(var(--neon-magenta));
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    5% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    10% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    15% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    20% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    25% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    30% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    35% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    40% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    45% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    50% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    55% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    60% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    65% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    70% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    75% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    80% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    85% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    90% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    95% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+    100% {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+  }
 }

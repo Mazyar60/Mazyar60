@@ -62,14 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className="font-sans antialiased"
-        style={{
-          // @ts-ignore
-          "--font-geist-sans": GeistSans.style.fontFamily,
-          "--font-geist-mono": GeistMono.style.fontFamily,
-        }}
-      >
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <Suspense fallback={<div>Loading...</div>}>
           <ClientProviders>{children}</ClientProviders>
         </Suspense>

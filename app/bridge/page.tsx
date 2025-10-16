@@ -1,12 +1,21 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function BridgePage() {
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
     // Load deBridge widget script
     const script = document.createElement("script")
     script.src = "https://app.debridge.finance/assets/scripts/widget.js"
@@ -14,14 +23,16 @@ export default function BridgePage() {
     script.onload = () => {
       // Initialize deBridge widget after script loads
       if (typeof window !== "undefined" && (window as any).deBridge) {
+        const widgetWidth = isMobile ? "100%" : "480"
+        const widgetHeight = isMobile ? "680" : "720"
         ;(window as any).deBridge.widget({
           v: "1",
           element: "debridgeWidget",
           title: "RZBank Bridge",
           description:
             "The RZBank Bridge app was created to help all Tether holders easily convert it to RZUSD or vice versa.",
-          width: "1200",
-          height: "1600",
+          width: widgetWidth,
+          height: widgetHeight,
           r: "999999",
           affiliateFeePercent: "0.01",
           affiliateFeeRecipient: "0x880498890b064583E189989BE574480094Fe0EDF",
@@ -51,12 +62,13 @@ export default function BridgePage() {
     document.body.appendChild(script)
 
     return () => {
-      // Cleanup script on unmount
+      // Cleanup
+      window.removeEventListener("resize", checkMobile)
       if (document.body.contains(script)) {
         document.body.removeChild(script)
       }
     }
-  }, [])
+  }, [isMobile])
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -78,10 +90,10 @@ export default function BridgePage() {
                   className="w-10 h-10 rounded-full"
                 />
                 <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                  <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                     RZBank Bridge
                   </h1>
-                  <p className="text-sm text-gray-400">Convert Tether to RZUSD and vice versa</p>
+                  <p className="text-xs md:text-sm text-gray-400">Convert Tether to RZUSD and vice versa</p>
                 </div>
               </div>
             </div>
@@ -90,42 +102,46 @@ export default function BridgePage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-7xl mx-auto">
+      <main className="container mx-auto px-4 py-6 md:py-8">
+        <div className="max-w-[520px] mx-auto">
           {/* Info Section */}
-          <div className="mb-8 text-center">
-            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <div className="mb-6 md:mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Cross-Chain Bridge
             </h2>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-400 text-sm md:text-base">
               The RZBank Bridge app was created to help all Tether holders easily convert it to RZUSD or vice versa.
-              Bridge your assets securely across multiple chains with low fees.
             </p>
           </div>
 
-          {/* deBridge Widget Container */}
-          <div className="flex justify-center">
-            <div id="debridgeWidget" className="w-full max-w-[1200px]"></div>
+          <div className="flex justify-center mb-8">
+            <div
+              id="debridgeWidget"
+              className="w-full max-w-full overflow-hidden"
+              style={{
+                maxWidth: isMobile ? "100%" : "480px",
+              }}
+            ></div>
           </div>
 
           {/* Features Section */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-center">
-              <div className="text-3xl mb-2">🔒</div>
-              <h3 className="text-lg font-semibold mb-2">Secure</h3>
-              <p className="text-gray-400 text-sm">
+          <div className="mt-8 md:mt-12 grid grid-cols-1 gap-4 md:gap-6">
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 md:p-6 text-center">
+              <div className="text-2xl md:text-3xl mb-2">🔒</div>
+              <h3 className="text-base md:text-lg font-semibold mb-2">Secure</h3>
+              <p className="text-gray-400 text-xs md:text-sm">
                 Your assets are protected with industry-leading security protocols
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-center">
-              <div className="text-3xl mb-2">⚡</div>
-              <h3 className="text-lg font-semibold mb-2">Fast</h3>
-              <p className="text-gray-400 text-sm">Quick cross-chain transfers with minimal waiting time</p>
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 md:p-6 text-center">
+              <div className="text-2xl md:text-3xl mb-2">⚡</div>
+              <h3 className="text-base md:text-lg font-semibold mb-2">Fast</h3>
+              <p className="text-gray-400 text-xs md:text-sm">Quick cross-chain transfers with minimal waiting time</p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-center">
-              <div className="text-3xl mb-2">💰</div>
-              <h3 className="text-lg font-semibold mb-2">Low Fees</h3>
-              <p className="text-gray-400 text-sm">Competitive fees with transparent pricing</p>
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 md:p-6 text-center">
+              <div className="text-2xl md:text-3xl mb-2">💰</div>
+              <h3 className="text-base md:text-lg font-semibold mb-2">Low Fees</h3>
+              <p className="text-gray-400 text-xs md:text-sm">Competitive fees with transparent pricing</p>
             </div>
           </div>
         </div>

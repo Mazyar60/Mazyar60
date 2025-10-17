@@ -16,15 +16,22 @@ export default function BridgePage() {
     checkMobile()
     window.addEventListener("resize", checkMobile)
 
-    // Load deBridge widget script
     const script = document.createElement("script")
     script.src = "https://app.debridge.finance/assets/scripts/widget.js"
     script.async = true
     script.onload = () => {
       // Initialize deBridge widget after script loads
       if (typeof window !== "undefined" && (window as any).deBridge) {
-        const widgetWidth = isMobile ? "100%" : "480"
-        const widgetHeight = isMobile ? "680" : "720"
+        // Check mobile status at initialization time
+        const isMobileDevice = window.innerWidth < 768
+        const widgetWidth = isMobileDevice ? "100%" : "480"
+        const widgetHeight = isMobileDevice ? "680" : "720"
+
+        // Clear any existing widget content to prevent duplicates
+        const widgetContainer = document.getElementById("debridgeWidget")
+        if (widgetContainer) {
+          widgetContainer.innerHTML = ""
+        }
         ;(window as any).deBridge.widget({
           v: "1",
           element: "debridgeWidget",
@@ -67,8 +74,13 @@ export default function BridgePage() {
       if (document.body.contains(script)) {
         document.body.removeChild(script)
       }
+      // Clear widget container on unmount
+      const widgetContainer = document.getElementById("debridgeWidget")
+      if (widgetContainer) {
+        widgetContainer.innerHTML = ""
+      }
     }
-  }, [isMobile])
+  }, [])
 
   return (
     <div className="min-h-screen bg-black text-white">
